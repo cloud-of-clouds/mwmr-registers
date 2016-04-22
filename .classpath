@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-8-oracle"/>
+	<classpathentry kind="lib" path="lib/aws-java-sdk-1.7.2.jar"/>
+	<classpathentry kind="lib" path="lib/google-api-services-datastore-protobuf-all-deps-v1beta2-rev1-2.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-datastore-extention.jar"/>
+	<classpathentry kind="lib" path="lib/java-xmlbuilder-0.4.jar"/>
+	<classpathentry kind="lib" path="lib/JEC.jar"/>
+	<classpathentry kind="lib" path="lib/jets3t-0.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/joda-time-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/JReedSolEC.jar"/>
+	<classpathentry kind="lib" path="lib/jss.jar"/>
+	<classpathentry kind="lib" path="lib/microsoft-windowsazure-api-0.4.6.jar"/>
+	<classpathentry kind="lib" path="lib/org.restlet.jar"/>
+	<classpathentry kind="lib" path="lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="lib/commons/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/commons/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/commons/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/http/httpclient-4.3.3.jar"/>
+	<classpathentry kind="lib" path="lib/http/httpcore-4.3.2.jar"/>
+	<classpathentry kind="lib" path="lib/jackson/jackson-annotations-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson/jackson-core-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson/jackson-core-asl-1.8.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson/jackson-databind-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson/jackson-mapper-asl-1.8.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson/java-xmlbuilder-0.4.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
