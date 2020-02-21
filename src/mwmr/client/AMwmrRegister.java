@@ -18,6 +18,7 @@ import mwmr.client.messages.Response;
 import mwmr.clouds.IKVSDriver;
 import mwmr.clouds.LocalCloudSimulator;
 import mwmr.clouds.amazon.AmazonS3Driver;
+import mwmr.clouds.azure.WindowsAzureDriver;
 import mwmr.clouds.google.GoogleStorageDriver;
 import mwmr.clouds.rackspace.RackSpaceDriver;
 import mwmr.clouds.softlayer.SoftLayerDriver;
@@ -362,8 +363,8 @@ public abstract class AMwmrRegister {
 		if(type.equals(GoogleStorageDriver.getDriverType()))
 			return new GoogleStorageDriver(clientId, driverId, accessKey, secretKey);
 
-//		if(type.equals(WindowsAzureDriver.getDriverType()))
-//			return new WindowsAzureDriver(clientId, driverId, accessKey, secretKey);
+		if(type.equals(WindowsAzureDriver.getDriverType()))
+			return new WindowsAzureDriver(clientId, driverId, accessKey, secretKey);
 
 		if(type.equals(RackSpaceDriver.getDriverType()))
 			return new RackSpaceDriver(clientId, driverId, accessKey, secretKey);
