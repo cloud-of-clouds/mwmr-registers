@@ -66,12 +66,13 @@ public class ExecutionThread extends Thread {
 		ListMWMROperation listOp = (ListMWMROperation) op;
 		DataUnit du = listOp.getDataUnit();
 		try {
+			//System.out.println("--> LISTING: " + listOp.getPrefix());
 			List<String> list = conn.listContainer(listOp.getPrefix(), du.getContainerName(), null);
-			//			for(String s : list)
-			//				System.out.println("index: " + executionIndex + "   key:" + s);
+//			for(String s : list)
+//				System.out.println("index: " + executionIndex + "   key:" + s);
 			return new Response(ResponseType.OK, list);
 		} catch (StorageCloudException e) {
-			//			e.printStackTrace();
+			e.printStackTrace();
 		}
 		return new Response(ResponseType.FAIL);
 	}
@@ -96,7 +97,7 @@ public class ExecutionThread extends Thread {
 		WriteMWMROperation writeOp = (WriteMWMROperation) op;
 		DataUnit du = writeOp.getDataUnit();
 		try {
-			//			System.out.println("Conn: " + executionIndex + "   writing data: " + writeOp.getData(executionIndex).length + "  writing ver: " + writeOp.getVersion());
+			//System.out.println("Conn: " + executionIndex + "   writing data: " + writeOp.getData(executionIndex).length + "  writing ver: " + writeOp.getVersion());
 			conn.writeObject(du.getContainerName(), writeOp.getVersion(), writeOp.getData(executionIndex), null);
 			return new Response(ResponseType.OK, AMwmrRegister.getConnectionFullId(conn));
 		} catch (StorageCloudException e) {
@@ -124,6 +125,7 @@ public class ExecutionThread extends Thread {
 	 * @requires (conn!=null && op!=null);
 	 */
 	public void executeOp(IKVSDriver conn, IOperation op, int executionIndex, OperationResponses resp){
+
 		synchronized (this) {
 			if(!executingOp){
 				this.conn = conn;

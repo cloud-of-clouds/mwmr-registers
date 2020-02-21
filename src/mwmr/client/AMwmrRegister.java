@@ -11,8 +11,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-import javax.xml.bind.DatatypeConverter;
-
 import exception.UnsuccessfulDecodeException;
 import jec.ReedSolInfo;
 import jec.ReedSolomon;
@@ -20,7 +18,6 @@ import mwmr.client.messages.Response;
 import mwmr.clouds.IKVSDriver;
 import mwmr.clouds.LocalCloudSimulator;
 import mwmr.clouds.amazon.AmazonS3Driver;
-import mwmr.clouds.azure.WindowsAzureDriver;
 import mwmr.clouds.google.GoogleStorageDriver;
 import mwmr.clouds.rackspace.RackSpaceDriver;
 import mwmr.clouds.softlayer.SoftLayerDriver;
@@ -261,6 +258,7 @@ public abstract class AMwmrRegister {
 				}
 			}while(current==null);
 
+			current.executeOp(connections[i], op, i, responses);
 		}
 	}
 
@@ -319,11 +317,11 @@ public abstract class AMwmrRegister {
 	}
 
 	public static String toHexString(byte[] array) {
-		return DatatypeConverter.printHexBinary(array);
+		return Hexadecimal.toHexStringFromBytes(array);
 	}
 
 	public static byte[] toByteArray(String s) {
-		return DatatypeConverter.parseHexBinary(s);
+		return Hexadecimal.toBytesFromHex(s);
 	}
 
 	public static boolean verifySig(String toSign, byte[] sign){
@@ -364,8 +362,8 @@ public abstract class AMwmrRegister {
 		if(type.equals(GoogleStorageDriver.getDriverType()))
 			return new GoogleStorageDriver(clientId, driverId, accessKey, secretKey);
 
-		if(type.equals(WindowsAzureDriver.getDriverType()))
-			return new WindowsAzureDriver(clientId, driverId, accessKey, secretKey);
+//		if(type.equals(WindowsAzureDriver.getDriverType()))
+//			return new WindowsAzureDriver(clientId, driverId, accessKey, secretKey);
 
 		if(type.equals(RackSpaceDriver.getDriverType()))
 			return new RackSpaceDriver(clientId, driverId, accessKey, secretKey);
